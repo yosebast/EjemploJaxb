@@ -1,0 +1,57 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Sucursales WSDL service -->
+
+  <service name="SucursalesSOAP" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://banco.com/Sucursales/"/>
+      <parameter name="wsdlServiceElement" value="Sucursales"/>
+      <parameter name="schemaQualified" value="http://banco.com/Sucursales/"/>
+      <parameter name="wsdlServicePort" value="SucursalesSOAP"/>
+      <parameter name="className" value="com.banco.Sucursales.SucursalesSOAPSkeleton"/>
+      <parameter name="wsdlPortType" value="Sucursales"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <arrayMapping
+        xmlns:ns="http://banco.com/Sucursales/"
+        qname="ns:>>buscaSucursalesResponse>sucursalesEncontradas"
+        type="java:com.banco.Sucursales.InfoSucursal[]"
+        innerType="cmp-ns:InfoSucursal" xmlns:cmp-ns="http://banco.com/Sucursales/"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://banco.com/Sucursales/"
+        qname="ns:>buscaSucursalesRequest"
+        type="java:com.banco.Sucursales.BuscaSucursalesRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://banco.com/Sucursales/"
+        qname="ns:>buscaSucursalesResponse"
+        type="java:com.banco.Sucursales.BuscaSucursalesResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://banco.com/Sucursales/"
+        qname="ns:InfoSucursal"
+        type="java:com.banco.Sucursales.InfoSucursal"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Schema-ejemplo" xmlns:tns="http://www.example.org/Schema-ejemplo" elementFormDefault="qualified">
+
+    <complexType name="Capitulo">
+    	<sequence>
+    		<element name="isbn_libro" type="string"></element>
+    		<element name="titulo" type="string"></element>
+    		<element name="numero_paginas" type="int"></element>
+    		<element name="idx" type="string"></element>
+    	</sequence>
+    </complexType>
+
+
+    <element name="Capitulo" type="tns:Capitulo"></element>
+</schema>

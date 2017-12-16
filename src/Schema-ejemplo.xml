@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Capitulo xmlns:tns="http://www.example.org/Schema-ejemplo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Schema-ejemplo Schema-ejemplo.xsd ">
+  <tns:isbn_libro>1234567890</tns:isbn_libro>
+  <tns:titulo>Capitulo 9: La ida</tns:titulo>
+  <tns:numero_paginas>50</tns:numero_paginas>
+  <tns:idx>34</tns:idx>
+</tns:Capitulo>

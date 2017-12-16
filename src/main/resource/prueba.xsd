@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://servicios.prueba.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios.prueba.org/">
+<xs:element name="obtenerTodosAlumnos" type="tns:obtenerTodosAlumnos"/>
+<xs:element name="obtenerTodosAlumnosResponse" type="tns:obtenerTodosAlumnosResponse"/>
+<xs:complexType name="obtenerTodosAlumnos">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="obtenerTodosAlumnosResponse">
+<xs:sequence>
+<xs:element name="alumnos" type="tns:alumnoDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="alumnoDTO">
+<xs:sequence>
+<xs:element name="apellidos" type="xs:string" minOccurs="0"/>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="dni" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

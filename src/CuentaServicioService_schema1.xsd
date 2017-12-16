@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://creaxsd3.prueba.org/" xmlns:tns="http://creaxsd3.prueba.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="account" type="tns:Account"/>
+
+  <xs:element name="getAccount" type="tns:getAccount"/>
+
+  <xs:element name="getAccountResponse" type="tns:getAccountResponse"/>
+
+  <xs:complexType name="getAccount">
+    <xs:sequence>
+      <xs:element name="accountNumber" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAccountResponse">
+    <xs:sequence>
+      <xs:element name="AccountDetails" type="tns:Account" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element name="accountNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="accountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="accountBalance" type="xs:double"/>
+      <xs:element name="accountStatus" type="tns:EnumAccountStatus" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="EnumAccountStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active"/>
+      <xs:enumeration value="Inactive"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

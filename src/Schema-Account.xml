@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Account xmlns:tns="http://www.example.org/Schema-Account" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Schema-Account Schema-Account.xsd ">
+  <tns:AcountNumber>tns:AcountNumber</tns:AcountNumber>
+  <tns:AccountName>tns:AccountName</tns:AccountName>
+  <tns:AccountBalance>tns:AccountBalance</tns:AccountBalance>
+  <tns:AccountStatus>Active</tns:AccountStatus>
+</tns:Account>

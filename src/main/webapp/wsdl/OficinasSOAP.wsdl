@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:pqr="http://tiendas.com/Oficinas/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Oficinas" targetNamespace="http://tiendas.com/Oficinas/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://tiendas.com/Oficinas/">
+      <xsd:element name="buscaTiendasRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="parteCodPostal" type="xsd:string"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="buscaTiendasResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="tiendasEncontradas">
+          	 <xsd:complexType>
+         	 <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="tienda" type="pqr:InfoTiendas"/>          
+          </xsd:sequence>
+          </xsd:complexType>
+          	
+          	</xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+        
+      <xsd:complexType name="InfoTiendas">
+      	<xsd:sequence>
+      		<xsd:element name="codTiendas" type="xsd:string"/>
+      		<xsd:element name="direccion" type="xsd:string"/>
+      		<xsd:element name="codPostal" type="xsd:string"/>
+      	</xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="buscaTiendasRequest">
+    <wsdl:part element="pqr:buscaTiendasRequest" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="buscaTiendasResponse">
+    <wsdl:part element="pqr:buscaTiendasResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Oficinas">
+    <wsdl:operation name="buscaTiendas">
+      <wsdl:input message="pqr:buscaTiendasRequest"/>
+      <wsdl:output message="pqr:buscaTiendasResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OficinasSOAP" type="pqr:Oficinas">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="buscaTiendas">
+      <soap:operation soapAction="http://tiendas.com/Oficinas/buscaTiendas"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Oficinas">
+    <wsdl:port binding="pqr:OficinasSOAP" name="OficinasSOAP">
+      <soap:address location="http://localhost:8082/EjemploJaxb/services/OficinasSOAP"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
